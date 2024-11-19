@@ -18,12 +18,11 @@ class PokeAPIClient:
         :return: Pokémon details as a dictionary.
         """
         try:
-            response = self.session.get(f"{self.base_url}/pokemon/{id_or_name}")
+            response = requests.get(f"{self.base_url}/pokemon/{id_or_name}")
             response.raise_for_status()
             return response.json()
-        except requests.RequestException as error:
-            print(f"Error fetching Pokémon with ID/Name '{id_or_name}': {error}")
-            raise ValueError(f"Unable to fetch Pokémon data for {id_or_name}")
+        except requests.exceptions.RequestException as e:
+            raise ValueError(f"Unable to fetch Pokémon data for {id_or_name}: {str(e)}")
 
     def get_generation(self, id_or_name):
         """
@@ -32,12 +31,11 @@ class PokeAPIClient:
         :return: Generation details as a dictionary.
         """
         try:
-            response = self.session.get(f"{self.base_url}/generation/{id_or_name}")
+            response = requests.get(f"{self.base_url}/generation/{id_or_name}")
             response.raise_for_status()
             return response.json()
-        except requests.RequestException as error:
-            print(f"Error fetching Generation with ID/Name '{id_or_name}': {error}")
-            raise ValueError(f"Unable to fetch Generation data for {id_or_name}")
+        except requests.exceptions.RequestException as e:
+            raise ValueError(f"Unable to fetch Generation data for {id_or_name}: {str(e)}")
 
     def get_paginated_results(self, endpoint, limit=20, offset=0):
         """
@@ -48,12 +46,9 @@ class PokeAPIClient:
         :return: Paginated results from the API.
         """
         try:
-            response = self.session.get(
-                f"{self.base_url}/{endpoint}",
-                params={'limit': limit, 'offset': offset}
-            )
+            params = {'limit': limit, 'offset': offset}
+            response = requests.get(f"{self.base_url}{endpoint}", params=params)
             response.raise_for_status()
             return response.json()
-        except requests.RequestException as error:
-            print(f"Error fetching paginated results from '{endpoint}': {error}")
-            raise ValueError(f"Unable to fetch data from {endpoint}")
+        except requests.exceptions.RequestException as e:
+            raise ValueError(f"Unable to fetch paginated results: {str(e)}")

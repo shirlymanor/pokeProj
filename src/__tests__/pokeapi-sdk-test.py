@@ -1,21 +1,25 @@
-import sys
+import unittest
 import os
-
-# Add the src directory to the Python path
-sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
+import sys
+sys.path.append(os.path.dirname(__file__) + '/..')
 
 from api.pokeapi_client import PokeAPIClient
 
-# Test the get_pokemon method
-client = PokeAPIClient()
-try:
-    pokemon = client.get_pokemon('pikachu')
-    print(pokemon)
-except ValueError as e:
-    print(f"An error occurred: {e}")
-# Test the get_generation method
-try:
-    generation = client.get_generation(1)
-    print(generation)
-except ValueError as e:
-    print(f"An error occurred: {e}")
+class TestPokeAPIClient(unittest.TestCase):
+    def setUp(self):
+        self.client = PokeAPIClient()
+
+    def test_get_pokemon(self):
+        pokemon = self.client.get_pokemon('pikachu')
+        print(pokemon)
+        
+    def test_get_generation(self):
+        try:
+            generation = self.client.get_generation(1000)
+            print(generation)
+        except Exception as e:
+            print(e)
+    
+
+if __name__ == '__main__':
+    unittest.main()
