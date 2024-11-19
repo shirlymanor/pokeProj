@@ -2,7 +2,7 @@
 SDK For Pockemon API
 
 <div align="center">
-<img src="https://github.com/Pockemon/Pockemon-SDK/blob/main/Pockemon.png" width="200" height="200">
+<img src="https://res.cloudinary.com/rh-demo/image/upload/w_400/og-default-image_wiaczn.jpg" width="400" height="400">
 </div>
 
 ## Installation
