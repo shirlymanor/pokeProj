@@ -52,3 +52,5 @@ class PokeAPIClient:
             return response.json()
         except requests.exceptions.RequestException as e:
             raise ValueError(f"Unable to fetch paginated results: {str(e)}")
+        
+        

@@ -5,7 +5,7 @@ import os
 # Add the current directory to the Python path
 sys.path.append(os.path.dirname(__file__))
 
-from api.pokeapi_client import PokeAPIClient
+from sdk.pokeapi_client import PokeAPIClient
 
 def main():
     st.title("Pokémon Information App")
@@ -23,6 +23,7 @@ def main():
                 st.balloons()
                 # Display basic information
                 st.subheader(f"Information for {pokemon_data['name'].capitalize()}")
+                
                 st.image(pokemon_data['sprites']['front_default'], caption=pokemon_data['name'].capitalize())
                 
                 # Display types

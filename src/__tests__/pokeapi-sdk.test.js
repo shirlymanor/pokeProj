@@ -1,4 +1,4 @@
-const PokeAPIClient = require('../api/pokeApiClient');
+const PokeAPIClient = require('../sdk/pokeApiClient');
 
 const client = new PokeAPIClient();
 
