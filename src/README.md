@@ -43,14 +43,19 @@ Bonus points for python :)
     ``` 
 
     ## Design Decisions and Tools
-    - [requests](https://pypi.org/project/requests/) / [axios](https://www.npmjs.com/package/axios) - I choose axios because it's a popular library for making HTTP requests in JavaScript. I also chose requests because it's a popular library for making HTTP requests in Python.
+    - [requests](https://pypi.org/project/requests/) / [axios](https://www.npmjs.com/package/axios) - I choose axios because it's a popular library for making HTTP requests in JavaScript. I also chose requests because it's a popular library for making HTTP requests and response back in Python.
     - [streamlit](https://streamlit.io/) - I used streamlit because it's my favorite library for building web applications in Python.
 
     - [docstrings](https://www.python.org/dev/peps/pep-0257/)
     
     ## Run the app
     ```bash
-    streamlit run pokemon_app.py 
+    streamlit run src/pokemon_app.py 
+    ```
+    
+    ## Run the app
+    ```bash
+    python3 -m streamlit run src/pokemon_app.py 
     ```
     
    

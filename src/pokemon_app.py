@@ -20,7 +20,7 @@ def main():
         if pokemon_name:
             try:
                 pokemon_data = client.get_pokemon(pokemon_name.lower())
-                
+                st.balloons()
                 # Display basic information
                 st.subheader(f"Information for {pokemon_data['name'].capitalize()}")
                 st.image(pokemon_data['sprites']['front_default'], caption=pokemon_data['name'].capitalize())
@@ -42,6 +42,7 @@ def main():
                 
             except ValueError as e:
                 st.error(f"An error occurred: {e}")
+                st.snow()
         else:
             st.warning("Please enter a Pokémon name.")
 

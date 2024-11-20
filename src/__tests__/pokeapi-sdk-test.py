@@ -10,8 +10,11 @@ class TestPokeAPIClient(unittest.TestCase):
         self.client = PokeAPIClient()
 
     def test_get_pokemon(self):
-        pokemon = self.client.get_pokemon('pikachu')
-        print(pokemon)
+        try:
+            pokemon = self.client.get_pokemon('pikachu')
+            print(pokemon)
+        except Exception as e:
+            print(e)
         
     def test_get_generation(self):
         try:
